@@ -18,7 +18,8 @@ function _init()
 	music(0)
 	
 	state = 1
-
+	
+ score = 0
 	
 	player = {
 		x      = 130,
@@ -70,6 +71,10 @@ function _update()
  elseif (state == 2) then
   -- death screen logic
   update_death()
+  
+ elseif (state == 3) then
+  -- death screen logic
+  update_win()
  end
 
 end
@@ -121,6 +126,7 @@ function update_gameplay()
    flr((player.y+1)/8) , -- map tile y
    76
    )
+  score += 1
  end
  
  -- change right tree
@@ -131,6 +137,7 @@ function update_gameplay()
    flr(player.y/8) , -- map tile y
    76
    )
+  score += 1
  end
  
  -- change upper tree
@@ -141,6 +148,7 @@ function update_gameplay()
    flr(player.y/8) , -- map tile y
    76
    )
+  score += 1
  end
  
  -- change lower tree
@@ -151,6 +159,13 @@ function update_gameplay()
    flr(player.y/8) + 1, -- map tile y
    76
    )
+  score += 1
+ end
+ 
+ -- check score
+ 
+ if (score == 2) then
+  state = 3
  end
  
  --[[drop gift
@@ -202,7 +217,7 @@ function update_gameplay()
 		end
 	end
 	
- --add enemy 
+ --[[add enemy 
  if (enemy.sr > 20) then
   add_enemy(
    	128,
@@ -210,7 +225,7 @@ function update_gameplay()
   )
   
   enemy.sr = 0
- end
+ end]]
  
  
 
@@ -240,6 +255,14 @@ end
 function update_death()
 	
 	-- restart game
+	if (btnp(5))then
+		_init()	
+	end
+end
+
+function update_win()
+	
+	-- you win
 	if (btnp(5))then
 		_init()	
 	end
