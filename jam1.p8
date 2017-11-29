@@ -15,10 +15,13 @@ function _init()
 	fps       = 30
 	sec       = 0
 	
+	cls()
+	color(7)
+	camera(0, 0)
 	
-	music(0)
+	-- music(0)
 	
-	state = 1
+	state = 0
 	
  score = 0
 	
@@ -99,13 +102,15 @@ function update_gameplay()
 	 (flr((player.y+1)/8))) == 74) then
 		player.x -= player.vx
 		player.astate = 0
+		--sfx(1)
 	elseif (btn(1))
-	--right movemnt
+	--right movement
 	and (mget 
 	((flr((player.x-2)/8))+1, 
 	 (flr((player.y+1)/8))) == 74) then 
 		player.x += player.vx
 		player.astate = 1
+		--sfx(1)
 	end
 	
 	--player movement u/d
@@ -116,6 +121,7 @@ function update_gameplay()
 	 (flr(player.y/8))) == 74) then
 		player.y -= player.vy
 		player.astate = 2
+		--sfx(1)
 	elseif (btn(3))
 	--down movement
 	and (mget 
@@ -123,6 +129,7 @@ function update_gameplay()
 	 (flr(player.y/8)+1)) == 74) then
 		player.y += player.vy
 		player.astate = 3
+		--sfx(1)
 	end		
 
  -- change trees
@@ -138,6 +145,7 @@ function update_gameplay()
    76
    )
   score += 1
+  sfx(3)
  end
  
  -- change right tree
@@ -151,6 +159,7 @@ function update_gameplay()
    76
    )
   score += 1
+  sfx(3)
  end
  
  -- change upper tree
@@ -164,6 +173,7 @@ function update_gameplay()
    76
    )
   score += 1
+  sfx(3)
  end
  
  -- change lower tree
@@ -177,11 +187,13 @@ function update_gameplay()
    76
    )
   score += 1
+  sfx(3)
  end
  
  -- check score
  
  if (score == 15) then
+  sfx(4)
   state = 3
  end
  
@@ -204,6 +216,7 @@ function update_gameplay()
 		and (e.x <= player.x + 4)
 		and (e.y + 7 >= player.y + 2)
 		and (e.y <= player.y +7) then
+			sfx(2)
 			state = 2
 		end
 		
@@ -308,8 +321,9 @@ end
 
 function draw_mainmenu()
 	
-	print("press x to save utz", 30, 60, 8)
-	print("from the evil krystian...", 20, 67, 8)
+	print("press button 2 to decorate", 10, 53,8) 
+	print("the christmas trees.", 22, 60, 8)
+	print("be aware of the evil grynchian...", 1, 67, 8)
 	
 end
 
@@ -324,13 +338,7 @@ function draw_gameplay()
 	-- camera
  camera(cam.x - 64, cam.y - 64)
 
-	
- --[[
-	print("run utz, run!", 40, 1, 8)
-	print("watch out for krystian!", 20, 7, 8)
-	print(sec.."s survived so far", 30, 122, 8)
- ]]
- 
+	 
  -- player
 	spr(
 		player.frames[player.astate+1][player.findex],
@@ -387,7 +395,7 @@ function draw_death()
  spr(60, cam.x+33, cam.y+5)
  spr(60, cam.x+41, cam.y+5)
   
- print("press x to try again", cam.x-45, cam.y+40, 3)
+ print("press button 2 to try again", cam.x-55, cam.y+40, 3)
   
 end
 
@@ -417,6 +425,8 @@ cls()
  spr(28, cam.x+25, cam.y+15)
  spr(28, cam.x+33, cam.y+15)
  spr(28, cam.x+41, cam.y+15)
+ 
+ print("press button 2 to restart", cam.x-52, cam.y+40, 8)
 
 end
 __gfx__
@@ -586,7 +596,7 @@ __map__
 5a5b5b5b5b5b5b5b5b5b595b5b5b595b5b5b5b5b5b595b5b5b5b5b5b5b5b5b7c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 __sfx__
 0023001e2b7752b7752b775177052b7752b7752b7752e7052b7752d77527775297752b775037052d7752d7752d7752d7752d7752b7752b7752b7752b77529775297752b775297752b70530775317050470502705
-001400040161003600016100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00140004016100360001610000002a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 001500000137001370013703e7703d7703c7703b770387703677033770307702e7702b77027770237701e7701a770157700d770057700277032700307002e7002b7002670023700207001d7001a7001570010700
 001000001f070170701600013000395003d5003e5003f500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 000f00000475010750187501c7501e750207502075020750207502075020750207502075005700017002e0002e7002a7002b70038700397002b7002570024700277002f700357003a70000000000000000000000
