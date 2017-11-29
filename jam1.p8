@@ -2,9 +2,11 @@ pico-8 cartridge // http://www.pico-8.com
 version 8
 __lua__
 -- animation system
--- 22.11.17
--- riki klein
--- v2
+-- 1st jam: utz vs. grinchian
+-- 29.11.17
+-- 90 % riki klein
+-- 10 % christoph kerls
+-- v1
 
 
 function _init()
@@ -15,7 +17,7 @@ function _init()
 	
 	music(0)
 	
-	state = 0
+	state = 1
 
 	
 	player = {
@@ -44,8 +46,15 @@ function _init()
 		ffreq  = 5,
 		sr = 0         -- spawnrate
 	}
+
+cam = {
+  x = 64,
+  y = 64,
+  x_min = 64,
+  y_min = 64
+ }
 	
-	end
+end
 
 
 function _update()
@@ -75,26 +84,36 @@ end
 
 function update_gameplay()
 
-	-- player movement
+	-- player movement l/r
 	if (btn(0))
 	and (player.x > 0) then
 		player.x -= player.vx
 		player.astate = 0
 	elseif (btn(1))
-	and (player.x + 4 < 127) then
+	and (player.x + 4 < 255) then
 		player.x += player.vx
 		player.astate = 1
 	end
 	
+	--player movement u/d
 	if (btn(2))
 	and (player.y > 0) then
 		player.y -= player.vy
 		player.astate = 2
 	elseif (btn(3))
-	and (player.y + 5 < 127) then
+	and (player.y + 5 < 255) then
 		player.y += player.vy
 		player.astate = 3
 	end		
+
+ -- drop gift
+ if (btnp(4)) then
+  mset(
+   player.x/8, -- map tile x
+   player.y/8, -- map tile y
+   77
+  )
+ end
 
 	-- player animation
 	if (frame%player.ffreq == 0) then
@@ -130,7 +149,7 @@ function update_gameplay()
 	end
 	
 	
- -- add enemy down
+ -- add enemy 
  if (enemy.sr > 20) then
   add_enemy(
    	64,
@@ -150,6 +169,18 @@ function update_gameplay()
 		sec += 1		
 	end
 	
+ -- camera motion
+ cam.x = player.x
+ cam.y = player.y
+ 
+ if (cam.x < cam.x_min) then
+  cam.x = cam.x_min
+ end
+ 
+ if (cam.y < cam.y_min) then
+  cam.y = cam.y_min
+ end
+
 end
 
 
@@ -205,12 +236,18 @@ function draw_gameplay()
 
 	cls()
 	
-	map(0, 0, 0, 0)
+	-- map set
+	map(0, 0, 0, 0, 32, 32)
 	
+	-- camera
+ camera(cam.x - 64, cam.y - 64)
 
+ --[[
 	print("run utz, run!", 40, 1, 8)
 	print("watch out for krystian!", 20, 7, 8)
 	print(sec.."s survived so far", 30, 122, 8)
+ ]]
+ 
  -- player
 	spr(
 		player.frames[player.astate+1][player.findex],
