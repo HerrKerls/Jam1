@@ -38,8 +38,8 @@ function _init()
 	}
 	
 	enemy = {
-		x = 128,
-		y = 131,
+		x = 115,
+		y = 115,
 		frames = {85, 86, 87, 86},
 		vx = 2,
 		vy = 2,
@@ -218,10 +218,10 @@ function update_gameplay()
 	end
 	
  --add enemy 
- if (enemy.sr > 20) then
+ if (enemy.sr > 10) then
   add_enemy(
-   	128,
-  	 130
+   	124,
+  	 128
   )
   
   enemy.sr = 0
@@ -273,8 +273,8 @@ function add_enemy(_x, _y)
 	local e = {
 		x  = _x,
 		y  = _y,
-		vx =  rnd(2) - 1,
-		vy =  rnd(2) - 1
+		vx =  rnd(4) - 2,
+		vy =  rnd(4) - 2
  }
  
  add(enemy, e)
@@ -353,45 +353,68 @@ end
 function draw_death()
 	cls()
 		
- spr(32, player.x-40, player.y-15)
- spr(33, player.x-32, player.y-15)
- spr(34, player.x-23, player.y-15)
- spr(35, player.x-18, player.y-15)
- spr(36, player.x-9, player.y-15)
- spr(37, player.x-1, player.y-15)
- spr(38, player.x+8, player.y-15)
- spr(39, player.x+13, player.y-15)
- spr(40, player.x+22, player.y-15)
- spr(41, player.x-39, player.y)
- spr(42, player.x-30, player.y)
- spr(43, player.x-23, player.y)
- spr(44, player.x-16, player.y)
- spr(45, player.x-9, player.y)
- spr(46, player.x, player.y)
- spr(47, player.x+9, player.y)
- spr(48, player.x+14, player.y)
- spr(49, player.x+21, player.y)
- spr(50, player.x-50, player.y+15)
- spr(51, player.x-42, player.y+15)
- spr(52, player.x-33, player.y+15)
- spr(53, player.x-24, player.y+15)
- spr(54, player.x-19, player.y+15)
- spr(55, player.x-12, player.y+15)
- spr(56, player.x-5, player.y+15)
- spr(57, player.x+2, player.y+15)
- spr(58, player.x+6, player.y+15)
- spr(59, player.x+15, player.y+15)
- spr(60, player.x+25, player.y+15)
- spr(60, player.x+33, player.y+15)
- spr(60, player.x+41, player.y+15)
+ spr(32, cam.x-40, cam.y-15)
+ spr(33, cam.x-32, cam.y-15)
+ spr(34, cam.x-23, cam.y-15)
+ spr(35, cam.x-18, cam.y-15)
+ spr(36, cam.x-9, cam.y-15)
+ spr(37, cam.x-1, cam.y-15)
+ spr(38, cam.x+8, cam.y-15)
+ spr(39, cam.x+13, cam.y-15)
+ spr(40, cam.x+22, cam.y-15)
+ spr(41, cam.x-39, cam.y)
+ spr(42, cam.x-30, cam.y)
+ spr(43, cam.x-23, cam.y)
+ spr(44, cam.x-16, cam.y)
+ spr(45, cam.x-9, cam.y)
+ spr(46, cam.x, cam.y)
+ spr(47, cam.x+9, cam.y)
+ spr(48, cam.x+14, cam.y)
+ spr(49, cam.x+21, cam.y)
+ spr(50, cam.x-50, cam.y+15)
+ spr(51, cam.x-42, cam.y+15)
+ spr(52, cam.x-33, cam.y+15)
+ spr(53, cam.x-24, cam.y+15)
+ spr(54, cam.x-19, cam.y+15)
+ spr(55, cam.x-12, cam.y+15)
+ spr(56, cam.x-5, cam.y+15)
+ spr(57, cam.x+2, cam.y+15)
+ spr(58, cam.x+6, cam.y+15)
+ spr(59, cam.x+15, cam.y+15)
+ spr(60, cam.x+25, cam.y+15)
+ spr(60, cam.x+33, cam.y+15)
+ spr(60, cam.x+41, cam.y+15)
+  
+ print("press x to try again", cam.x-45, cam.y+40, 3)
   
 end
 
 function draw_win()
 
 cls()
-print("glueckwunsch alte schlunze", player.x-50, player.y, 8)
-print("press button 2 to retart", player.x-50, player.y+6)
+
+	spr(4, cam.x-17, cam.y-15)
+	spr(20, cam.x-17, cam.y-7)
+	spr(5, cam.x-8, cam.y-15)
+	spr(6, cam.x+1, cam.y-15)
+	spr(7, cam.x-25, cam.y)
+	spr(8, cam.x-18, cam.y)
+	spr(9, cam.x-9, cam.y)
+	spr(10, cam.x, cam.y)
+	spr(11, cam.x+7, cam.y)
+	spr(12, cam.x-50, cam.y+15)
+ spr(13, cam.x-42, cam.y+15)
+ spr(14, cam.x-33, cam.y+15)
+ spr(21, cam.x-24, cam.y+15)
+ spr(22, cam.x-19, cam.y+15)
+ spr(23, cam.x-12, cam.y+15)
+ spr(24, cam.x-5, cam.y+15)
+ spr(25, cam.x+2, cam.y+15)
+ spr(26, cam.x+6, cam.y+15)
+ spr(27, cam.x+15, cam.y+15)
+ spr(28, cam.x+25, cam.y+15)
+ spr(28, cam.x+33, cam.y+15)
+ spr(28, cam.x+41, cam.y+15)
 
 end
 __gfx__
@@ -534,7 +557,7 @@ __map__
 49694a4a4a6a4a4a495b5b795b5b7d4a4a7b5b5c4a4a4a6a4a4a7b5b5b5b5b69000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 497c4a4a4a6a4a4a6c4a4a7b7d4b6a4a4a4a4a4a4a6b4a6a4a4a4a4a4a4a4a6a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 6a4a4a7a5b7c4a4a4a4a4a4a6a4a6a4a5d5b5b7d4a7b5b5a5b5b5b5b5c4a4a6a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-6a4a4a6a4a4a4a4a6b4a4a4a6c4a6a4a4a4a4b6a4a4a4a6a4a4a4a4a4a4a4a6a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+6a4a4a6a4a4a4a4a6b4a4a4a6c4a6a4a4a4a4a6a4a4a4a6a4a4a4a4a4a4a4a6a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 6a4a4a6a4a4a5d5b595b7d4a4a4a495b5b5b79595c4a4a6a4a6b4a4a4a4a4a6a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 6a4a4a6a4a4a4a4a4a4a7b5b5b5b694a4a4a6c4a4a4a4a6a4a7b5b795b7d4a6a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 6a4a4a7b5c4a4a4a4a4a4a4a4a4a6a4a4a4a4a4a4a4a4a6a4a4a4b6a4a6c4a6a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
