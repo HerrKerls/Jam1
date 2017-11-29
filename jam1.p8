@@ -129,10 +129,12 @@ function update_gameplay()
  
  -- change left tree
  if (btnp(4))
-  and (mget ((flr(player.x/8)), (flr((player.y+1)/8))) == 75) 
+  and (mget 
+  ((flr(player.x/8)), 
+   (flr((player.y+1)/8))) == 75) 
   then mset(
-   flr(player.x/8) , -- map tile x
-   flr((player.y+1)/8) , -- map tile y
+    flr(player.x/8) , 
+    flr((player.y+1)/8) , 
    76
    )
   score += 1
@@ -140,10 +142,12 @@ function update_gameplay()
  
  -- change right tree
  if (btnp(4))
-  and (mget ((flr((player.x-2)/8)) +1, (flr((player.y+1)/8))) == 75) 
+  and (mget 
+  ((flr((player.x-2)/8)) +1, 
+   (flr((player.y+1)/8))) == 75) 
   then mset(
-   flr(player.x/8) + 1, -- map tile x
-   flr((player.y+1)/8) , -- map tile y
+    flr((player.x-2)/8) + 1,--!
+    flr((player.y+1)/8) , 
    76
    )
   score += 1
@@ -151,10 +155,12 @@ function update_gameplay()
  
  -- change upper tree
  if (btnp(4))
-  and (mget ((flr((player.x+1)/8)), (flr(player.y/8))) == 75) 
+  and (mget 
+  ((flr((player.x+1)/8)), 
+   (flr(player.y/8))) == 75) 
   then mset(
-   flr(player.x/8) +1, -- map tile x
-   flr(player.y/8) , -- map tile y
+    flr((player.x+1)/8), -- !
+    flr(player.y/8) , 
    76
    )
   score += 1
@@ -162,10 +168,12 @@ function update_gameplay()
  
  -- change lower tree
  if (btnp(4))
-  and (mget ((flr((player.x+1)/8)), (flr(player.y/8)+1)) == 75) 
+  and (mget 
+  ((flr((player.x+1)/8)), 
+   (flr(player.y/8)+1)) == 75) 
   then mset(
-   flr(player.x/8) , -- map tile x
-   flr(player.y/8) + 1, -- map tile y
+    flr((player.x+1)/8) , 
+    flr(player.y/8)+1, 
    76
    )
   score += 1
@@ -177,22 +185,7 @@ function update_gameplay()
   state = 3
  end
  
- --[[drop gift
- if (btnp(4)) 
-  and (
-   (mget ((flr(player.x/8)), (flr((player.y+1)/8))) == 75)
-   or (mget ((flr((player.x-2)/8)) +1, (flr((player.y+1)/8))) == 75)
-   or (mget ((flr((player.x+1)/8)), (flr(player.y/8))) == 75)
-   or (mget ((flr((player.x+1)/8)), (flr(player.y/8)+1)) == 75)
-  )
-   then
-   mset(
-   flr(player.x/8) + 1, -- map tile x
-   flr(player.y/8) + 1, -- map tile y
-   77
-   )
- end]]
-
+ 
 	-- player animation
 	if (frame%player.ffreq == 0) then
 		player.findex += 1
@@ -226,7 +219,7 @@ function update_gameplay()
 		end
 	end
 	
- --add enemy 
+ -- add enemy 
  if (enemy.sr > 10) then
   add_enemy(
    	124,
