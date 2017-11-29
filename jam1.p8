@@ -21,7 +21,7 @@ function _init()
 	
 	-- music(0)
 	
-	state = 1
+	state = 0
 	
  score = 0
 	
