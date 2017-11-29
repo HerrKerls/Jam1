@@ -330,8 +330,22 @@ end
 function draw_death()
 	cls()
 		
- spr(32, player.x-50, player.y)
- spr(33, player.x-50, player.y)
+ spr(32, player.x-40, player.y-10)
+ spr(33, player.x-32, player.y-10)
+ spr(34, player.x-23, player.y-10)
+ spr(35, player.x-18, player.y-10)
+ spr(36, player.x-9, player.y-10)
+ spr(37, player.x-1, player.y-10)
+ spr(38, player.x+8, player.y-10)
+ spr(39, player.x+13, player.y-10)
+ spr(40, player.x+22, player.y-10)
+ spr(41, player.x-50, player.y)
+ spr(42, player.x-41, player.y)
+ spr(43, player.x-34, player.y)
+ spr(44, player.x-27, player.y)
+ spr(45, player.x-20, player.y)
+ spr(46, player.x-50, player.y)
+ 
  
  
 end
