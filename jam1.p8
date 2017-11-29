@@ -217,7 +217,7 @@ function update_gameplay()
 		end
 	end
 	
- --[[add enemy 
+ --add enemy 
  if (enemy.sr > 20) then
   add_enemy(
    	128,
@@ -225,7 +225,7 @@ function update_gameplay()
   )
   
   enemy.sr = 0
- end]]
+ end
  
  
 
@@ -353,24 +353,38 @@ end
 function draw_death()
 	cls()
 		
- spr(32, player.x-40, player.y-10)
- spr(33, player.x-32, player.y-10)
- spr(34, player.x-23, player.y-10)
- spr(35, player.x-18, player.y-10)
- spr(36, player.x-9, player.y-10)
- spr(37, player.x-1, player.y-10)
- spr(38, player.x+8, player.y-10)
- spr(39, player.x+13, player.y-10)
- spr(40, player.x+22, player.y-10)
- spr(41, player.x-50, player.y)
- spr(42, player.x-41, player.y)
- spr(43, player.x-34, player.y)
- spr(44, player.x-27, player.y)
- spr(45, player.x-20, player.y)
- spr(46, player.x-50, player.y)
- 
- 
- 
+ spr(32, player.x-40, player.y-15)
+ spr(33, player.x-32, player.y-15)
+ spr(34, player.x-23, player.y-15)
+ spr(35, player.x-18, player.y-15)
+ spr(36, player.x-9, player.y-15)
+ spr(37, player.x-1, player.y-15)
+ spr(38, player.x+8, player.y-15)
+ spr(39, player.x+13, player.y-15)
+ spr(40, player.x+22, player.y-15)
+ spr(41, player.x-39, player.y)
+ spr(42, player.x-30, player.y)
+ spr(43, player.x-23, player.y)
+ spr(44, player.x-16, player.y)
+ spr(45, player.x-9, player.y)
+ spr(46, player.x, player.y)
+ spr(47, player.x+9, player.y)
+ spr(48, player.x+14, player.y)
+ spr(49, player.x+21, player.y)
+ spr(50, player.x-50, player.y+15)
+ spr(51, player.x-42, player.y+15)
+ spr(52, player.x-33, player.y+15)
+ spr(53, player.x-24, player.y+15)
+ spr(54, player.x-19, player.y+15)
+ spr(55, player.x-12, player.y+15)
+ spr(56, player.x-5, player.y+15)
+ spr(57, player.x+2, player.y+15)
+ spr(58, player.x+6, player.y+15)
+ spr(59, player.x+15, player.y+15)
+ spr(60, player.x+25, player.y+15)
+ spr(60, player.x+33, player.y+15)
+ spr(60, player.x+41, player.y+15)
+  
 end
 __gfx__
 00000007605005055050050700000000888208820888882088820820088820000088200088828820088820008888882008888200888208208888820000000000
