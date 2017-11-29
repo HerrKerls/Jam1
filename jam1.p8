@@ -43,7 +43,7 @@ function _init()
 		vx = 2,
 		vy = 2,
 		findex = 1,
-		ffreq  = 5,
+		ffreq  = 10,
 		sr = 0         -- spawnrate
 	}
 
