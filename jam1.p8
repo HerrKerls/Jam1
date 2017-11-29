@@ -117,9 +117,9 @@ function update_gameplay()
 	 (flr((player.y+1)/8))) == 74) then
 		player.x -= player.vx
 		player.astate = 0
-		--if (sfx(1) = false) then
-		-- sfx(1, 1, 0, 4)
-		--end
+		if (frame%20==0) then
+		 sfx(1, 1, 0, 4)
+		end
 	elseif (btn(1))
 	--right movement
 	and (mget 
@@ -127,7 +127,9 @@ function update_gameplay()
 	 (flr((player.y+1)/8))) == 74) then 
 		player.x += player.vx
 		player.astate = 1
-		--sfx(1)
+		if (frame%20==0) then
+		 sfx(1, 1, 0, 4)
+		end
 	end
 	
 	--player movement u/d
@@ -138,7 +140,9 @@ function update_gameplay()
 	 (flr(player.y/8))) == 74) then
 		player.y -= player.vy
 		player.astate = 2
-		--sfx(1)
+		if (frame%20==0) then
+		 sfx(1, 1, 0, 4)
+		end
 	elseif (btn(3))
 	--down movement
 	and (mget 
@@ -146,7 +150,9 @@ function update_gameplay()
 	 (flr(player.y/8)+1)) == 74) then
 		player.y += player.vy
 		player.astate = 3
-		--sfx(1)
+		if (frame%20==0) then
+		 sfx(1, 1, 0, 4)
+		end
 	end		
 
  -- change trees
