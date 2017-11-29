@@ -21,8 +21,8 @@ function _init()
 
 	
 	player = {
-		x      = 64,
-		y      = 90,
+		x      = 32,
+		y      = 32,
 		vx     = 1,
 		vy     = 1,
 		frames = {
@@ -86,22 +86,26 @@ function update_gameplay()
 
 	-- player movement l/r
 	if (btn(0))
-	and (player.x > 0) then
+	--left movement 
+	and (mget ((flr(player.x/8)), (flr((player.y+1)/8))) == 74) then
 		player.x -= player.vx
 		player.astate = 0
 	elseif (btn(1))
-	and (player.x + 4 < 255) then
+	--right movemnt
+	and (mget ((flr((player.x-2)/8)) +1, (flr((player.y+1)/8))) == 74) then 
 		player.x += player.vx
 		player.astate = 1
 	end
 	
 	--player movement u/d
 	if (btn(2))
-	and (player.y > 0) then
+	--up movement
+	and (mget ((flr((player.x+1)/8)), (flr(player.y/8))) == 74) then
 		player.y -= player.vy
 		player.astate = 2
 	elseif (btn(3))
-	and (player.y + 5 < 255) then
+	--down movement
+	and (mget ((flr((player.x+1)/8)), (flr(player.y/8)+1)) == 74) then
 		player.y += player.vy
 		player.astate = 3
 	end		
