@@ -4,8 +4,9 @@ __lua__
 -- animation system
 -- 1st jam: utz vs. grinchian
 -- 29.11.17
--- 90 % riki klein
--- 10 % christoph kerls
+-- riki klein
+-- christoph kerls
+-- joscha haberstock
 -- v1
 
 
