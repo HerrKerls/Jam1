@@ -71,6 +71,7 @@ function _update()
   -- death screen logic
   update_death()
  end
+
 end
 
 
@@ -117,7 +118,7 @@ function update_gameplay()
   and (mget ((flr(player.x/8)), (flr((player.y+1)/8))) == 75) 
   then mset(
    flr(player.x/8) , -- map tile x
-   flr(player.y/8) , -- map tile y
+   flr((player.y+1)/8) , -- map tile y
    76
    )
  end
