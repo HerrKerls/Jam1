@@ -110,7 +110,11 @@ function update_gameplay()
 		player.astate = 3
 	end		
 
- --drop gift
+ -- change tree
+ 
+ 
+ 
+ --[[drop gift
  if (btnp(4)) 
   and (
    (mget ((flr(player.x/8)), (flr((player.y+1)/8))) == 75)
@@ -124,7 +128,7 @@ function update_gameplay()
    flr(player.y/8) + 1, -- map tile y
    77
    )
- end
+ end]]
 
 	-- player animation
 	if (frame%player.ffreq == 0) then
