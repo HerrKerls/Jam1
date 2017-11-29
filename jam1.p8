@@ -134,7 +134,7 @@ function update_gameplay()
   and (mget ((flr((player.x-2)/8)) +1, (flr((player.y+1)/8))) == 75) 
   then mset(
    flr(player.x/8) + 1, -- map tile x
-   flr(player.y/8) , -- map tile y
+   flr((player.y+1)/8) , -- map tile y
    76
    )
   score += 1
@@ -144,7 +144,7 @@ function update_gameplay()
  if (btnp(4))
   and (mget ((flr((player.x+1)/8)), (flr(player.y/8))) == 75) 
   then mset(
-   flr(player.x/8) , -- map tile x
+   flr(player.x/8) +1, -- map tile x
    flr(player.y/8) , -- map tile y
    76
    )
@@ -164,7 +164,7 @@ function update_gameplay()
  
  -- check score
  
- if (score == 2) then
+ if (score == 15) then
   state = 3
  end
  
@@ -345,7 +345,7 @@ function draw_gameplay()
   )
  end
  
- 
+ print ("trees left: "..(15-score),cam.x-63, cam.y-63, 3)
 	
 end
 
@@ -385,6 +385,14 @@ function draw_death()
  spr(60, player.x+33, player.y+15)
  spr(60, player.x+41, player.y+15)
   
+end
+
+function draw_win()
+
+cls()
+print("glueckwunsch alte schlunze", player.x-50, player.y, 8)
+print("press button 2 to retart", player.x-50, player.y+6)
+
 end
 __gfx__
 00000007605005055050050700000000888208820888882088820820088820000088200088828820088820008888882008888200888208208888820000000000
