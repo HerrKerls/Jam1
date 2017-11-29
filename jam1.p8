@@ -21,8 +21,8 @@ function _init()
 
 	
 	player = {
-		x      = 32,
-		y      = 32,
+		x      = 130,
+		y      = 142,
 		vx     = 1,
 		vy     = 1,
 		frames = {
@@ -110,13 +110,20 @@ function update_gameplay()
 		player.astate = 3
 	end		
 
- -- drop gift
- if (btnp(4)) then
-  mset(
+ --[[drop gift
+ if (btnp(4)) 
+  and (
+   (mget ((flr(player.x/8)), (flr((player.y+1)/8))) == 75)
+   or (mget ((flr((player.x-2)/8)) +1, (flr((player.y+1)/8))) == 75)
+   or (mget ((flr((player.x+1)/8)), (flr(player.y/8))) == 75)
+   or (mget ((flr((player.x+1)/8)), (flr(player.y/8)+1)) == 75)
+  )
+   then
+   mset(
    player.x/8, -- map tile x
    player.y/8, -- map tile y
    77
-  )
+   )
  end
 
 	-- player animation
