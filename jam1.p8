@@ -74,22 +74,15 @@ cam = {
  mset( 3, 28, 75)
  mset(17, 28, 75)
  mset(30, 30, 75)
+ -- 7 trees additional
+ mset(13,  5, 75)
+ mset(19, 12, 75)
+ mset(11, 13, 75)
+ mset(14, 15, 75)
+ mset(17, 15, 75)
+ mset(21, 19, 75)
+ mset(13, 23, 75)
  
- -- 6 trees random
- 
- t = 0
- ::treeloop::
- for tx = 1, 30, flr(rnd(10))+5 do
-  for ty = 1, 30, flr(rnd(10))+5 do
-   if (mget(tx, ty) == 74) then
-    mset(tx, ty, 75)
-    t += 1
-   end
-  end
- end
- if (t < 6) then
-  goto treeloop
- end
 	
 end
 
