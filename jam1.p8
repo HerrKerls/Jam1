@@ -183,16 +183,15 @@ function update_gameplay()
  for bang in all(fire) do
   bang.x += bang.vx
   bang.y += bang.vy
+  -- delet fire out of border
+  if (bang.x > 256) 
+  or (bang.x <   1)
+  or (bang.y > 256)
+  or (bang.y <   1) then
+   del(fire, bang)
+  end
   -- hit enemy by players fire?
   for e in all(enemy) do
-<<<<<<< HEAD
-   if (bang.x >= e.x)
-   and (bang.x <= e.x + 3)
-   and (bang.y >= e.y)
-   and (bang.y <= e.y + 3) then     del(fire, bang)
-    del(enemy, e) 
-   end 
-=======
     if (bang.x >= e.x)
     and (bang.x <= e.x + 7)
     and (bang.y >= e.y)
@@ -201,7 +200,6 @@ function update_gameplay()
      del(enemy, e) 
      sfx(6)
     end 
->>>>>>> db1f10b03e36321bceb830473312afcf2e751aec
   end
  end
 
@@ -332,7 +330,14 @@ function update_gameplay()
 	for e in all(enemy) do
 		e.x += e.vx
 		e.y += e.vy
-		
+		-- delet fire out of border
+  if (e.x > 256) 
+  or (e.x <   1)
+  or (e.y > 256)
+  or (e.y <   1) then
+   del(enemy, e)
+  end
+  
 		if  (e.x + 6 >= player.x)
 		and (e.x <= player.x + 4)
 		and (e.y + 7 >= player.y + 2)
@@ -447,7 +452,7 @@ end
 
 function draw_mainmenu()
 	
-	print("press button 2 to decorate", 10, 53,8) 
+	print("press button 1 to decorate", 10, 53,8) 
 	print("the christmas trees.", 22, 60, 8)
 	print("be aware of the evil grynchian...", 1, 67, 8)
 	
