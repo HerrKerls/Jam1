@@ -455,7 +455,7 @@ function draw_mainmenu()
 	print("press button 1 to decorate", 10, 53,8) 
 	print("the christmas trees.", 22, 60, 8)
 	print("be aware of the evil grynchian...", 1, 67, 8)
-	
+	print("press button 2 to throw snowballs", 1, 74,8)
 end
 
 
