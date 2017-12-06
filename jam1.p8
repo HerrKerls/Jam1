@@ -21,7 +21,9 @@ function _init()
 	state = 0
 	
  score = 0
-
+ 
+ peng  = true
+ 
  frame     = 1
 	fps       = 30
 	sec       = 0
@@ -135,6 +137,11 @@ function update_gameplay()
 		sec += 1		
 	end
 	
+	-- reset fire timer
+	if (frame%fps == 0) then
+	 peng = true
+	end
+	
  -- player fire
  if (btnp(5)) then
   -- shoot to left
@@ -142,7 +149,7 @@ function update_gameplay()
    add_fire (
     player.x,
     player.y,
-    -2,
+    -3,
      0
    )
    sfx(5) -- plz add sound
@@ -152,7 +159,7 @@ function update_gameplay()
    add_fire (
     player.x,
     player.y,
-     2,
+     3,
      0
    )
    sfx(5) -- plz add sound
@@ -163,7 +170,7 @@ function update_gameplay()
     player.x,
     player.y,
      0,
-    -2
+    -3
    )
    sfx(5) -- plz add sound
   end
@@ -173,7 +180,7 @@ function update_gameplay()
     player.x,
     player.y,
      0,
-     2
+     3
    )
    sfx(5) -- plz add sound
   end
@@ -411,8 +418,13 @@ function add_fire(_x, _y, _vx, _vy)
   sn = 67 
  }
  
- add (fire, f)
- sfx(5)
+ if (peng == true) then
+  add (fire, f)
+  sfx(5)
+  peng = false
+ end
+ 
+ 
 end
 
 function add_enemy(_x, _y)
