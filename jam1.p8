@@ -381,10 +381,10 @@ function update_gameplay()
  cam.x = player.x
  cam.y = player.y
  
+ -- keep camera in borders 
  if (cam.x < cam.x_min) then
   cam.x = cam.x_min
  end
- 
  if (cam.y < cam.y_min) then
   cam.y = cam.y_min
  end
@@ -408,7 +408,7 @@ function update_win()
 	end
 end
 
-
+-- function throw snowballs
 function add_fire(_x, _y, _vx, _vy)
  local f = {
   x  =  _x,
@@ -418,6 +418,7 @@ function add_fire(_x, _y, _vx, _vy)
   sn = 67 
  }
  
+ -- check if fire counter true
  if (peng == true) then
   add (fire, f)
   sfx(5)
@@ -427,6 +428,7 @@ function add_fire(_x, _y, _vx, _vy)
  
 end
 
+-- function enemy spawning
 function add_enemy(_x, _y)
 	local e = {
 		x  = _x,
@@ -478,7 +480,7 @@ function draw_gameplay()
 	-- map set
 	map(0, 0, 0, 0, 32, 32)
 	
-	-- camera
+	-- camera set
  camera(cam.x - 64, cam.y - 64)
 
 	 
@@ -489,7 +491,7 @@ function draw_gameplay()
 		player.y
 	)
 	
-	-- players fire
+	-- draw players fire sprites
 	for f in all(fire) do
 	 spr(
 	  67,
@@ -498,7 +500,7 @@ function draw_gameplay()
 	 )
 	end
 	
-	-- enemy
+	-- draw enemy sprites
 	for e in all(enemy) do
   spr(
    enemy.frames[enemy.findex],
